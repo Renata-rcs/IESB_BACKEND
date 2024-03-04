@@ -8,6 +8,7 @@ Tema:
 - Cobalt2 Theme
 
 Extensões:
--Code Runner
--Codeium
--intellicode
+- Code Runner
+- Codeium
+- intellicode
+- Material Icon Theme
