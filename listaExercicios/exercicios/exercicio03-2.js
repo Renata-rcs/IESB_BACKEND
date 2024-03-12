@@ -1,14 +1,14 @@
 /*Escreva um script para ler o salário mensal atual de um funcionário e o percentual de reajuste. Calcular e escrever o valor do novo salário.
 */
 
-let prompt = require('prompt-sync')();
+const  prompt = require('prompt-sync')();
 
-var salAtual = 0;
-var perReajuste = 0;
+console.log("Exercício 03")
+console.log("Calcular reajuste salárial")
 
-var salarioAtual = parseFloat(prompt("Informe seu salário atual: "));
-var percetualReajuste = parseFloat(prompt("Informe o percentual de reajuste: "));
+const salarioAtual = Number(prompt("Informe seu salário atual: "));
+const percetualReajuste = Number(prompt("Informe o percentual de reajuste: "));
 
-var salarioReajustado = salarioAtual + (salarioAtual * (percetualReajuste / 100));
+const salarioReajustado = salarioAtual + (salarioAtual * (percetualReajuste / 100));
 
-console.log("Seu salário mensal com o reajuste será de: " + salarioReajustado.toFixed(2) + " R$.");
+console.log("Seu salário mensal com o reajuste será de: R$" + salarioReajustado.toFixed(2) );

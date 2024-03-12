@@ -1,1 +1,1 @@
-console.log
+let prompt = require('prompt-sync')();
