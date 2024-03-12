@@ -2,29 +2,16 @@
 OBS: V = PI * Raio^2 * Altura
 */
 
-let prompt = require('prompt-sync')();
+const prompt = require('prompt-sync')();
 
-var raio;
-var altura;
+console.log("Exercício 08")
+console.log("Calcular o volume de uma caixa d'água cilíndrica")
 
-// Solicitar o raio até que um valor numérico válido seja inserido
-do {
-    raio = parseFloat(prompt("Informe o raio da caixa d'água (em metros): "));
-    if (isNaN(raio)) {
-        console.log("Por favor, insira um valor numérico para o raio.");
-    }
-} while (isNaN(raio));
-
-// Solicitar a altura até que um valor numérico válido seja inserido
-do {
-    altura = parseFloat(prompt("Informe a altura da caixa d'água (em metros): "));
-    if (isNaN(altura)) {
-        console.log("Por favor, insira um valor numérico para a altura.");
-    }
-} while (isNaN(altura));
+const raio = Number(prompt("Informe o raio da caixa d'água (em metros): "));
+const altura = Number(prompt("Informe a altura da caixa d'água (em metros): "));
 
 const pi = Math.PI;
 
-var volume = pi * Math.pow(raio, 2) * altura;
+const volume = pi * Math.pow(raio, 2) * altura; // Math.pow faz a conta da potencia raio = valor do raio, e o 2 siginifica a qual número de potência foi elevado (raio, 2)
 
 console.log("O volume da caixa d'água é: ", volume.toFixed(2), "metros cúbicos.");

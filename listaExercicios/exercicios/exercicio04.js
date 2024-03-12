@@ -3,21 +3,18 @@
 
 const prompt = require('prompt-sync')();
 
-var custoFabrica;
-var percentualDistribuidor = 0.28; 
-var percentualImpostos = 0.45; 
+console.log("Exercício 04")
+console.log("Custo de um carro novo ao consumidor")
+
+const  custoFabrica = Number(prompt("Informe o custo de fábrica do carro: "));
+const  percentualDistribuidor = 28 / 100; 
+const  percentualImpostos = 45 / 100; 
 
 
-do {
-    custoFabrica = parseFloat(prompt("Informe o custo de fábrica do carro: "));
-    if (isNaN(custoFabrica)) {
-        console.log("Por favor, insira um valor numérico para o custo de fábrica.");
-    }
-} while (isNaN(custoFabrica));
-
-const  valorDistribuidor = custoFabrica * percentualDistribuidor;
+const valorDistribuidor = custoFabrica * percentualDistribuidor;
 const  valorImpostos = custoFabrica * percentualImpostos;
+
 
 const  custoFinal = custoFabrica + valorDistribuidor + valorImpostos;
 
-console.log("O custo final será de " + custoFinal.toFixed(2) + " R$.");
+console.log("O custo final será de R$" + custoFinal.toFixed(2));

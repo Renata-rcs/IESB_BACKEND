@@ -1,39 +1,20 @@
 /*O custo de um carro novo ao consumidor é a soma do custo de fábrica com a porcentagem do distribuidor e dos impostos (aplicados ao custo de fábrica). Escreva um script para ler o custo de fábrica de um carro, a porcentagem do distribuidor e o imposto, e calcular e escrever o custo final ao consumidor.
 */
 
-let prompt = require('prompt-sync')();
+const prompt = require('prompt-sync')();
 
-var custoFabrica;
-var percentualDistribuidor;
-var percentualImpostos;
+console.log("Exercício 05")
+console.log("Custo de um carro novo ao consumidor")
 
-
-do {
-    custoFabrica = parseFloat(prompt("Informe o custo de fábrica do carro: "));
-    if (isNaN(custoFabrica)) {
-        console.log("Por favor, insira um valor numérico para o custo de fábrica.");
-    }
-} while (isNaN(custoFabrica));
+const custoFabrica = Number(prompt("Informe o custo de fábrica do carro: "));
+const percentualDistribuidor = Number(prompt("Informe o percentual de impostos dsitribuidor: "));
+const percentualImpostos = Number(prompt("Informe o percentual de Impostos sobre o valor do custo: "));
 
 
-do {
-    percentualDistribuidor = parseFloat(prompt("Informe o percentual de impostos do distribuidor: "));
-    if (isNaN(percentualDistribuidor)) {
-        console.log("Por favor, insira um valor numérico para o percentual do distribuidor.");
-    }
-} while (isNaN(percentualDistribuidor));
+const valorDistribuidor = custoFabrica * (percentualDistribuidor / 100);
+const valorImpostos = custoFabrica * (percentualImpostos / 100) ;
 
 
-do {
-    percentualImpostos = parseFloat(prompt("Informe o percentual de impostos sobre o valor do custo: "));
-    if (isNaN(percentualImpostos)) {
-        console.log("Por favor, insira um valor numérico para o percentual de impostos.");
-    }
-} while (isNaN(percentualImpostos));
+const custoFinal = custoFabrica + valorDistribuidor + valorImpostos;
 
-var valorDistribuidor = custoFabrica * (percentualDistribuidor / 100);
-var valorImpostos = custoFabrica * (percentualImpostos / 100);
-
-var custoFinal = custoFabrica + valorDistribuidor + valorImpostos;
-
-console.log("O custo final será de " + custoFinal.toFixed(2) + " R$.");
+console.log("O custo final será de  R$" + custoFinal.toFixed(2));
