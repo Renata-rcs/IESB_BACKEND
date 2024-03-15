@@ -39,8 +39,10 @@ app.get('/exercicio1/:nota1/:nota2/:nota3/:nota4', (req, res) => {
     }else {
         mensagem2 = "Reprovado"
     }
-    res.send(`Média: ${media} Aluno ${mensagem2}`)
+    
 */
+res.send(`Média: ${media} Aluno ${mensagem}`)
+
 })
 
 
