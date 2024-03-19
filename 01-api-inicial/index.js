@@ -96,7 +96,7 @@ app.get('/media/:nota1/:nota2/:nota3/:nota4', (req, res) =>{
 })
 
 // Correção professor
-app.get('/aluna', (req, res) =>{
+app.get('/aluna', (req, res) =>{ // http://localhost:3000/aluna?nota1=10&nota2=8&nota3=7&nota4=10 exemplo pra usar no postmam
     console.log(req.query)
     const nota1 = Number((req.query.nota1))
      const nota2 = Number((req.query.nota2))
