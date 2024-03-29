@@ -4,6 +4,9 @@ const tutorial = require('./routes/tutorial')
 const subrota = require('./routes/subrota')
 const contatos = require('./routes/contatos')
 
+// Porta
+const port = 3000
+
 // Configuração
 const app = express()
 

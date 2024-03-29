@@ -20,11 +20,11 @@ router.get('/contatos', (req, res) =>{
 })
 
 // READ - BUSCA DO CONTATO PELO INDENTIFICADOR
-router.get('/contatos/:id', (req, res) =>{
-    const id = req.params.id
-    const contato = listaContatos[id]
-    res.json(contato)
-})
+router.get('/contatos/:id', (req, res) => {
+    const id = req.params.id;
+    const contato = listaContatos[id];
+    res.json(contato);
+});
 
 
 // CREATE - CADASTRAR CONTATOS
