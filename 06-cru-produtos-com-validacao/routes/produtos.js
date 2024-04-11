@@ -98,7 +98,7 @@ router.delete('/produtos/:id', (req, res) =>{
 
     const index = listaProdutos.findIndex(produto => produto.id == id)
     if(index == -1){
-        res.status(404).json({mendagem: "Produto não encontrado!"})
+        res.status(404).json({mensagem: "Produto não encontrado!"})
     }
     else{
         listaProdutos.splice(index, 1)
