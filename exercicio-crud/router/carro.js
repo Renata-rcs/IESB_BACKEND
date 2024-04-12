@@ -102,25 +102,27 @@ router.delete('/carro/:id', validarCarro, (req, res) =>{
 // filtar
 router.get('/carro/cor/:cor', (req, res) => {
     const cor = req.params.cor
-    const carros = listaCarro.filter(carro => carro.cor == cor)
+    const carros = listaCarro.find(carro => carro.cor == cor)
 
     
 
     res.status(200).json(carros)
 })
 
+
+// filtar
 router.get('/carro/total/:cor', (req, res) => {
     const cor = req.params.cor;
     const carrosFiltrados = listaCarro.filter(carro => carro.cor === cor);
 
+    let soma = 0;
+    carrosFiltrados.forEach(carro => {
+        soma += carro.valor;
+    });
 
-   let sum = 0
-   listaCarro.forEach(carro => {
-    sum = sum + carro.valor
-   })
-
-    res.status(200).json({ total: sum });
+    res.status(200).json({ total: soma });
 });
+
 
 
 
