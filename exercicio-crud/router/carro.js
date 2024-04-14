@@ -1,6 +1,4 @@
 const express = require('express')
-const { mkdirSync } = require('fs')
-const { json } = require('stream/consumers')
 const router = express.Router()
 
 
@@ -15,6 +13,7 @@ let listaCarro = [
     }
  ]
 
+ // Função Validar Carro
  function validarCarro(req, res, next) {
     const id = req.params.id
     const carro = listaCarro.find(carro => carro.id == id)
@@ -28,6 +27,8 @@ let listaCarro = [
     
  }
 
+
+ // Função Validar Atributos
  function validarAtributos(req, res, next) {
     const dadosRecebidos = req.body
     if(!dadosRecebidos.marca || !dadosRecebidos.modelo || !dadosRecebidos.cor || !dadosRecebidos.valor){
@@ -50,6 +51,8 @@ router.get('/carro', (req, res) => {
 router.get('/carro/:id', validarCarro ,(req, res, next) => {
     res.json(req.carro)
 })
+
+
 // criar
 router.post('/carro', validarAtributos,(req, res, ) => {
     const dado = req.body
@@ -67,6 +70,7 @@ router.post('/carro', validarAtributos,(req, res, ) => {
     res.status(201).json({mensagem: "Carro cadastrado com sucesso!"})
 
 })
+
 
 //update
 router.put('/carro/:id',validarCarro ,validarAtributos,(req, res, ) => {
@@ -89,7 +93,6 @@ router.put('/carro/:id',validarCarro ,validarAtributos,(req, res, ) => {
 })
 
 
-
 // delete
 router.delete('/carro/:id', validarCarro, (req, res) =>{
     const id = req.params.id
@@ -98,6 +101,7 @@ router.delete('/carro/:id', validarCarro, (req, res) =>{
     listaCarro.splice(index, 1)
     res.status(200).json({mensagem: " Carro excluido com sucesso!"})
 })
+
 
 // filtar
 router.get('/carro/cor/:cor', (req, res) => {
@@ -110,19 +114,44 @@ router.get('/carro/cor/:cor', (req, res) => {
 })
 
 
-// filtar
+// filter sum 
 router.get('/carro/total/:cor', (req, res) => {
     const cor = req.params.cor;
     const carrosFiltrados = listaCarro.filter(carro => carro.cor === cor);
 
-    let soma = 0;
+    let sum = 0;
     carrosFiltrados.forEach(carro => {
-        soma += carro.valor;
+        sum += carro.valor;
+        // ou sum = sum + carro.cor
     });
 
-    res.status(200).json({ total: soma });
+    res.status(200).json({ total: sum });
 });
 
+// usando filter e redulce
+router.get('/carro/reduce/:cor', (req, res) => {
+    const cor = req.params.cor;
+    const carrosFiltrados = listaCarro.filter(carro => carro.cor === cor);
+
+    const total = carrosFiltrados.reduce((acc, carro) => {
+        return acc + carro.valor;
+    }, 0);
+
+    res.status(200).json({ total });
+});
+
+//READ -> Buscar um valor > determinado
+router.get('/carro/valor-maior-que/:valor', (req, res) => {
+    const valor = parseFloat(req.params.valor);
+    const carros = listaCarro.filter(carro => carro.valor > valor);
+    res.status(200).json(carros);
+});
+
+
+
+
+
+ 
 
 
 
