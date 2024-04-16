@@ -3,7 +3,7 @@ const app = express()
 
 
 
-// Middlware
+// Middleware
 app.use(express.json())
 
 
