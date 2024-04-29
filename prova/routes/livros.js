@@ -127,7 +127,9 @@ router.get('/livros/preco/media', (req, res) =>{
     const totalPrecos = listaLivros.reduce((total, livro) => total + livro.preco, 0);
     const precoMedio = totalPrecos / listaLivros.length;
 
+
     res.json({ preco_medio: precoMedio });
 });
+
 
 module.exports = router;
