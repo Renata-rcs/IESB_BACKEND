@@ -27,6 +27,7 @@ let estruturaPessoa  =  [
     }
 ]
 
+
 // READ -> Buscar todas as pessoas
 router.get('/pessoasComValidacao', (req, res) =>{
     res.json(estruturaPessoa)
