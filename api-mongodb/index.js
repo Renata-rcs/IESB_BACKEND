@@ -11,6 +11,7 @@ app.use(express.json())
 app.get('/hello', (req, res) => {
     res.json("Hello")
 })
+
 const DB_USERNAME= process.env.DB_USERNAME;
 const DB_PASSWORD= process.env.DB_PASSWORD;
 
