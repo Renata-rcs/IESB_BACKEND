@@ -50,7 +50,7 @@ app.put('/tarefas/:id', async (req, res) =>{
 
 
 app.delete('/tarefas/:id', async (req, res) =>{
-    await Tarefa.findOneAndDelete(req.params.id)
+    await Tarefa.findByIdAndDelete(req.params.id)
     res.json()
 })
 
