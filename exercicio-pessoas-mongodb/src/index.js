@@ -56,7 +56,6 @@ app.delete('/pessoas/:id', async (req, res) =>{
 
 
 
-
 // Escutador
 app.listen(PORT, ()=>{
     console.log(`Aplicação rodando na porta ${PORT}`)
