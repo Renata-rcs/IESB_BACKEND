@@ -20,6 +20,9 @@ router.delete('/cargos/:id', CargoController.remove)
 // Funcionarios
 router.post('/funcionarios', FuncionarioController.create)
 router.get('/funcionarios/:id', FuncionarioController.getById)
+router.get('/funcionarios', FuncionarioController.getAll)
+router.put('/funcionarios/:id', FuncionarioController.update)
+router.delete('/funcionarios/:id', FuncionarioController.remove)
 
 
 module.exports = router

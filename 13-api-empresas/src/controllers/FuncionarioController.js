@@ -27,11 +27,38 @@ async function getById(req, res) {
     }
 }
 
-// atualizacao, detele, buscatodos
+
+async function getAll(req, res) {
+    res.json(await Funcionario.find())
+}
+
+
+async function update(req, res) {
+    try {
+        const funcionarioAtualizado = await Funcionario.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.json(funcionarioAtualizado)
+    }
+    catch (error) {
+        console.log("Erro ao criar funcionario: ", error)
+        res.status(400).json({
+            mensagem: "Erro ao Atualizar funcionario!",
+            erro: error.mensage
+        })
+    }
+}
+
+async function remove(req, res) {
+    await Funcionario.findByIdAndDelete(req.params.id)
+    res.json({mensagem: "Excluido com sucesso!"})
+}
 
 
 
 module.exports = {
     create,
-    getById
+    getById,
+    getAll,
+    update,
+    remove
+
 }
