@@ -34,7 +34,7 @@ async function getById(req, res) {
 
 async function update(req, res) {
     try {
-        const cargoAtualizado = await Cargo.findByIdAndUpdate(req.params.id, req.body)
+        const cargoAtualizado = await Cargo.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.json(cargoAtualizado)
     }
     catch (error) {
