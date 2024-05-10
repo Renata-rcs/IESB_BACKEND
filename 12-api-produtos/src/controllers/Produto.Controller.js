@@ -83,13 +83,10 @@ async function update(req, res) {
 
 async function deleteProduct(req, res) {
     try {
-        const produto = await Produto.findByIdAndDelete(req.params.id);
-        if (!produto) {
-            return res.status(404).json({ mensagem: "Produto não encontrado" });
-        }
+        await Produto.findByIdAndDelete(req.params.id);
         res.json({ mensagem: "Produto deletado com sucesso" });
     } catch (error) {
-        console.log(error);
+        console.error(error);
         res.status(500).json({ mensagem: "Ocorreu um erro ao deletar o produto", error: error });
     }
 }
