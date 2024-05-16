@@ -3,12 +3,12 @@
 ## Modelagem de dados
 
 
-![Modelagem de Dados](./modelagem.png)
+![Modelagem de Dados](../13-api-empresas/docs/modelagem.png)
 
 ## Arquitetura
 A API será construída utilizando Node.js e Express.js, com o banco de dados MongoDB hospedado no MongoDB Atlas. A configuração do ambiente será gerenciada com o dotenv e a validação de dados será feita com o Yup.
 
-![Arquitetura](./arquitetura.png)
+![Arquitetura](../13-api-empresas/docs/arquitetura.png)
 
 ## Tecnologias Utilizadas
 - [Node.js](https://nodejs.org/en)
