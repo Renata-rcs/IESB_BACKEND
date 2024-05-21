@@ -16,6 +16,7 @@ const { departamentoValidador } = require('../validators/DepartamentoValidator')
 const { projetoValidador } = require('../validators/ProjetoValidator');
 const { tarefaValidador } = require('../validators/TarefaValidator');
 
+
 // Cargos
 router.post('/cargos', cargoValidador, CargoController.create);
 router.get('/cargos', CargoController.getAll);
