@@ -1,6 +1,6 @@
 const yup = require('yup')
 
-const cargoSchema = yup.object().shape({
+const funcionarioSchema = yup.object().shape({
     nome: yup
         .string('campo precisa ser uma texto')
         .required('campo obrigatório'),
@@ -33,7 +33,7 @@ const cargoSchema = yup.object().shape({
 })
 
 function funcionarioValidador(req, res, next) {
-    cargoSchema
+    funcionarioSchema
         .validate(req.body, { abortEarly: false })
             .then(() => next())
             .catch(err => {
