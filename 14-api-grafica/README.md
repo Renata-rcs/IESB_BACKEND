@@ -1,4 +1,4 @@
-# API de Gerenciamento de Pedidos
+# API Gráfica Gerenciamento de Pedidos
 
 Esta é uma API gráfica para gerenciamento de pedidos, permitindo a criação, atualização, consulta e exclusão de pedidos. A API fornece endpoints para manipulação de dados de pedidos, clientes e produtos.
 
