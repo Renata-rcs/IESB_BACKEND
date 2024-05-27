@@ -14,7 +14,7 @@ O sistema é composto pelas seguintes entidades:
 2. **Cliente**
 3. **Produto**
 4. **Pedido**
-5. **ItensPedido**
+5. **ItemPedido**
 
 ## Funcionalidades Principais
 
