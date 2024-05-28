@@ -18,6 +18,7 @@ const { produtoValidador } = require('../validators/ProdutoValidator')
 const { itemPedidoValidador } = require('../validators/ItenPedidoValidator')
 
 
+
 // Rotas para Cliente
 router.post('/clientes', clienteValidador, ClienteController.create)
 router.get('/clientes', ClienteController.getAll)

@@ -1,5 +1,5 @@
-const Pedido = require('../models/Pedido');
-const { sendEmail } = require('../services/emailService');
+const Pedido = require('../models/Pedido')
+const { sendEmail } = require('../services/emailService')
 
 async function create(req, res) {
     try {
@@ -12,11 +12,11 @@ async function create(req, res) {
         \nValor: ${pedido.valor}
         \nResponsavel: ${pedido.responsavel}`
 
-        await sendEmail('renatacarvalhotop@gmail.com', 'Novo Pedido Recebido', emailText);
+        await sendEmail('renatacarvalhotop@gmail.com', 'Novo Pedido Recebido', emailText)
 
         res.status(201).json(pedido);
     } catch (error) {
-        res.status(500).json({ message: 'Erro ao criar pedido', error: error.message });
+        res.status(500).json({ message: 'Erro ao criar pedido', error: error.message })
     }
 }
 
