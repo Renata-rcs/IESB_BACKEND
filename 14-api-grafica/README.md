@@ -14,7 +14,12 @@ O sistema é composto pelas seguintes entidades:
 2. **Cliente**
 3. **Produto**
 4. **Pedido**
-5. **ItemPedido**
+5. **Serviço**
+
+## Arquitetura
+A API será construída utilizando Node.js e Express.js, com o banco de dados MongoDB hospedado no MongoDB Atlas. A configuração do ambiente será gerenciada com o dotenv e a validação de dados será feita com o Yup.
+
+![Arquitetura](./docs/arquitetura.png)
 
 ## Funcionalidades Principais
 
@@ -25,7 +30,7 @@ O sistema é composto pelas seguintes entidades:
      - `GET /clientes`: Retorna a lista de todos os clientes cadastrados.
      - `GET /produtos`: Retorna a lista de todos os produtos disponíveis.
      - `GET /pedidos`: Retorna a lista de todos os pedidos realizados.
-     - `GET /itensPedidos`: Retorna a lista de todos os itens de pedido realizados.
+     - `GET /servicos/`: Retorna a lista de todos os servico realizados.
 
 2. **Buscar por ID**:
    - Permite buscar um registro específico de uma entidade pelo seu ID.
@@ -34,7 +39,7 @@ O sistema é composto pelas seguintes entidades:
      - `GET /clientes/{id}`: Retorna as informações do cliente com o ID especificado.
      - `GET /produtos/{id}`: Retorna as informações do produto com o ID especificado.
      - `GET /pedidos/{id}`: Retorna as informações do pedido com o ID especificado.
-     - `GET /itensPedidos/{id}`: Retorna as informações do item de pedido com o ID especificado.
+     - `GET /servico/{id}`: Retorna as informações do servico com o ID especificado.
 
 3. **Criar**:
    - Permite criar um novo registro em uma entidade.
@@ -43,7 +48,7 @@ O sistema é composto pelas seguintes entidades:
      - `POST /clientes`: Adiciona um novo cliente ao sistema.
      - `POST /produtos`: Adiciona um novo produto ao catálogo.
      - `POST /pedidos`: Cria um novo pedido para um cliente, incluindo os itens de pedido.
-     - `POST /itensPedidos`: Cria um novo item de pedido para um cliente.
+     - `POST /servicos`: Cria um novo servico para um cliente.
 
 4. **Atualizar**:
    - Permite atualizar as informações de um registro existente em uma entidade.
@@ -52,7 +57,7 @@ O sistema é composto pelas seguintes entidades:
      - `PUT /clientes/{id}`: Atualiza as informações do cliente com o ID especificado.
      - `PUT /produtos/{id}`: Atualiza as informações do produto com o ID especificado.
      - `PUT /pedidos/{id}`: Atualiza as informações do pedido com o ID especificado.
-     - `PUT /itensPedidos/{id}`: Atualiza as informações do item de pedido com o ID especificado.
+     - `PUT /servicos/{id}`: Atualiza as informações do servico com o ID especificado.
 
 5. **Deletar**:
    - Permite excluir um registro de uma entidade pelo seu ID.
@@ -61,7 +66,7 @@ O sistema é composto pelas seguintes entidades:
      - `DELETE /clientes/{id}`: Remove o cliente com o ID especificado do sistema.
      - `DELETE /produtos/{id}`: Remove o produto com o ID especificado do catálogo.
      - `DELETE /pedidos/{id}`: Remove o pedido com o ID especificado do sistema.
-     - `DELETE /itensPedidos/{id}`: Remove o item de pedido com o ID especificado do sistema.
+     - `DELETE /servicos/{id}`: Remove o servico com o ID especificado do sistema.
 
 
 
@@ -89,3 +94,21 @@ Para permitir que a aplicação envie e-mails usando o Nodemailer e uma conta do
    EMAIL_PASS=your_app_specific_password
 
 
+# Instalação
+1. Clone este repositório:
+    ```sh
+    git clone <URL_DO_REPOSITORIO>
+    ```
+2. Instale as dependências:
+    ```sh
+    npm install
+    ```
+3. Configure as variáveis de ambiente no arquivo `.env`:
+    ```env
+    MONGODB_URI=<sua_url_mongodb_atlas>
+    PORT=<porta_da_aplicação>
+    ```
+4. Inicie a aplicação:
+    ```sh
+    npm start
+    ```

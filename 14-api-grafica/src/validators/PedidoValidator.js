@@ -10,13 +10,12 @@ const pedidoSchema = yup.object().shape({
     status: yup
         .string('O campo precisa ser uma texto')
         .required('Campo obrigatório'),
-    formaPagamento: yup
-        .string('O campo precisa ser uma texto')
-        .required('Campo obrigatório'),
+    produto: yup
+        .string('O campo precisa ser uma texto'),
     valor: yup
         .number('O campo precisa ser um número')
         .required('Campo obrigatório'),
-    responsavel: yup
+    servico: yup
         .string('O campo precisa ser uma string'),
     cliente: yup
         .string('O campo precisa ser uma string')

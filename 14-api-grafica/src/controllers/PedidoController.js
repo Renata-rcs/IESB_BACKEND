@@ -8,9 +8,9 @@ async function create(req, res) {
 
         const emailText = `Novo pedido criado:
         \nCliente: ${pedido.cliente}
-        \nItens do Pedido: ${pedido.itemPedido}
-        \nValor: ${pedido.valor}
-        \nResponsavel: ${pedido.responsavel}`
+        \nProduto: ${pedido.produto}
+        \nServiço: ${pedido.servico}
+        \nValor: ${pedido.valor}R$`
 
         await sendEmail('renatacarvalhotop@gmail.com', 'Novo Pedido Recebido', emailText)
 
@@ -22,7 +22,7 @@ async function create(req, res) {
 
 async function getAll(req, res) {
     try {
-        const pedidos = await Pedido.find().populate(['cliente', 'responsavel'])
+        const pedidos = await Pedido.find().populate(['produto','cliente', 'servico'])
         res.json(pedidos)
     } catch (error) {
         console.error("Erro ao buscar pedidos: ", error)
@@ -35,7 +35,7 @@ async function getAll(req, res) {
 
 async function getById(req, res) {
     try {
-        const pedido = await Pedido.findById(req.params.id).populate(['cliente', 'responsavel'])
+        const pedido = await Pedido.findById(req.params.id).populate(['produto','cliente', 'servico'])
         if (pedido) {
             res.json(pedido)
         } else {
@@ -52,7 +52,7 @@ async function getById(req, res) {
 
 async function update(req, res) {
     try {
-        const pedidoAtualizado = await Pedido.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate(['cliente', 'responsavel'])
+        const pedidoAtualizado = await Pedido.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate(['produto','cliente', 'servico'])
         if (pedidoAtualizado) {
             res.json(pedidoAtualizado)
         } else {
@@ -69,7 +69,7 @@ async function update(req, res) {
 
 async function remove(req, res) {
     try {
-        const pedidoExcluido = await Pedido.findByIdAndDelete(req.params.id).populate(['cliente', 'responsavel'])
+        const pedidoExcluido = await Pedido.findByIdAndDelete(req.params.id).populate(['produto','cliente', 'servico'])
         if (pedidoExcluido) {
             res.json({
                 mensagem: "Pedido excluído com sucesso!",

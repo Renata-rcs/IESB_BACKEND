@@ -8,42 +8,39 @@ const schema = new mongoose.Schema(
         },
         previsaoEntrega: {
             type: Date,
-            requirid: true
+            required: true
         },
         status: {
             type: String,
             required: true
         },
-        formaPagamento: {
-            type: String,
-            required: true
+        produto: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'produto',
+            required: false
         },
         valor: {
             type: Number,
             required: true
         },
-        responsavel: {
-            type: mongoose.SchemaTypes.ObjectId,
-            ref: 'funcionario',
+        servico: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'servico',
             required: false
         },
         cliente: {
-            type: mongoose.SchemaTypes.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'cliente',
             required: false 
-        },
-        itemPedido: {
-            type: mongoose.SchemaTypes.ObjectId,
-            ref: 'itemPedido',
-            required: false 
         }
-       
+
     },
     {
         timestamps: true
     }
 )
 
+
 const Pedido = mongoose.model('pedido', schema)
 
-module.exports = Pedido
+module.exports = Pedido;

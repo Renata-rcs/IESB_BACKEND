@@ -1,23 +1,28 @@
 const yup = require('yup');
 
-const itemPedidoSchema = yup.object().shape({
+const servicoSchema = yup.object().shape({
     nome: yup
         .string('O campo precisa ser uma texto')
         .required('Campo obrigatório'),
     descricao: yup
         .string('O campo precisa ser uma texto')
         .required('Campo obrigatório'),
-    quantidade: yup
-        .number('O campo precisa ser um número')
+    material: yup
+        .string('O campo precisa ser um número')
         .required('Campo obrigatório'),
-    pedido: yup
-        .string('O campo precisa ser uma string'),
-    produto: yup
+    categoria: yup
+        .string('O campo precisa ser uma string')
+        .required('Campo obrigatório'),
+    disponibilidade: yup
+        .string('O campo precisa ser uma string')
+        .required('Campo obrigatório'),
+    responsavel: yup
         .string('O campo precisa ser uma string')
 });
 
-function itemPedidoValidador(req, res, next) {
-    itemPedidoSchema
+
+function servicoValidador(req, res, next) {
+   servicoSchema
         .validate(req.body, { abortEarly: false })
         .then(() => next())
         .catch(err => {
@@ -33,5 +38,5 @@ function itemPedidoValidador(req, res, next) {
 }
 
 module.exports = {
-    itemPedidoValidador
+    servicoValidador
 };
